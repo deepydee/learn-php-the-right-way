@@ -1,0 +1,42 @@
+version: '3'
+
+networks:
+  default:
+    name: ${COMPOSE_PROJECT_NAME:-luis-plus}-net
+    driver: bridge
+
+services:
+  php:
+    image: registry.dev-mage3.com/luis-plus/backend:image-tag
+    container_name: ${COMPOSE_PROJECT_NAME:-luis-plus}-php
+    environment: &environment
+      STAND: "dev"
+      APP_URL: https://${VIRTUAL_HOST}
+      DB_HOST: ${DB_HOST:-db}
+      DB_PORT: ${DB_PORT:-3306}
+      DB_USER: ${DB_USER:-root}
+      DB_PASS: ${DB_PASS:-tmp}
+      DB_NAME: ${DB_NAME:-laravel}
+      ELASTIC_HOST: ${ELS_HOST:-elasticsearch}
+      ELASTIC_PORT: ${ELS_PORT:-9200}
+      REDIS_HOST: ${REDIS_HOST:-redis}
+      REDIS_PORT: ${REDIS_PORT:-6379}
+      S3_ACCESS_KEY: ${S3_ACCESS_KEY}
+      S3_SECRET_KEY: ${S3_SECRET_KEY}
+      S3_REGION: ${S3_REGION}
+      S3_BUCKET: ${S3_BUCKET}
+      S3_ENDPOINT: ${S3_ENDPOINT}
+      S3_URL: ${S3_URL}
+    volumes: &volumes
+      - ./storage/logs:/var/www/html/storage/logs
+      - ./storage/app/public:/var/www/html/storage/app/public
+    restart: always
+
+  worker:
+    image: registry.dev-mage3.com/luis-plus/backend:image-tag
+    container_name: ${COMPOSE_PROJECT_NAME:-luis-plus}-worker
+    volumes: *volumes
+    environment:
+      <<: *environment
+      APP_TYPE: "worker"
+    restart: unless-stopped

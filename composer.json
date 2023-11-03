@@ -1,0 +1,15 @@
+{
+    "name": "synthex/phptherightway",
+    "autoload": {
+        "psr-4": {
+            "Synthex\\Phptherightway\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Vitaliy Semenov",
+            "email": "synthex@bk.ru"
+        }
+    ],
+    "require": {}
+}

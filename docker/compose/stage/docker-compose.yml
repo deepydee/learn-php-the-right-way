@@ -1,0 +1,125 @@
+version: '3'
+
+networks:
+  default:
+    name: staging-net
+    external: true
+  traefik-net:
+    external: true
+
+services:
+  app:
+    image: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_SHA}
+    environment: &environment
+      STAND: "stage"
+      APP_URL: https://${VIRTUAL_HOST}
+      DB_HOST:
+      DB_PORT: 3306
+      DB_USER: stage
+      DB_PASS:
+      DB_NAME: staging
+      ELASTIC_HOST:
+      ELASTIC_PORT: 9200
+      ELASTIC_PASSWORD:
+      REDIS_HOST:
+      REDIS_PORT: 6379
+      REDIS_PASSWORD:
+      S3_ACCESS_KEY:
+      S3_SECRET_KEY:
+      S3_REGION:
+      S3_BUCKET:
+      S3_ENDPOINT:
+      S3_URL:
+      MAIL_USERNAME:
+      MAIL_PASSWORD:
+      IDM_AUTH_KEY:
+    volumes:
+      - /home/serveradmin/storage/logs:/var/www/html/storage/logs
+      - /home/serveradmin/storage/app/public:/var/www/html/storage/app/public
+    deploy:
+      placement:
+        constraints: [node.labels.env == staging]
+      replicas: 8
+      resources:
+        limits:
+          cpus: '0.75'
+          memory: 1024M
+        reservations:
+          cpus: '0.50'
+          memory: 768M
+      update_config:
+        parallelism: 1
+        delay: 5s
+        failure_action: rollback
+        order: start-first
+      rollback_config:
+        parallelism: 1
+        delay: 5s
+        order: start-first
+      restart_policy:
+        condition: any
+
+  worker:
+    image: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_SHA}
+    environment:
+      <<: *environment
+      APP_TYPE: "worker"
+    volumes:
+      - /home/serveradmin/storage/logs/workers:/var/www/html/storage/logs
+    deploy:
+      placement:
+        constraints: [node.labels.tag == worker1]
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 1024M
+        reservations:
+          cpus: '0.25'
+          memory: 768M
+      update_config:
+        parallelism: 1
+        delay: 5s
+        failure_action: rollback
+        order: start-first
+      rollback_config:
+        parallelism: 1
+        delay: 5s
+        order: start-first
+      restart_policy:
+        condition: any
+
+  pma:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: ${DB_HOST}
+      PMA_USER: stage
+      PMA_PASSWORD: ${DB_PASS}
+      PMA_ARBITRARY: 0
+      UPLOAD_LIMIT: 1047527424
+    networks:
+      - traefik-net
+    deploy:
+      placement:
+        constraints: [node.labels.env == staging]
+      update_config:
+        parallelism: 1
+        delay: 5s
+        failure_action: rollback
+        order: start-first
+      rollback_config:
+        parallelism: 1
+        delay: 5s
+        order: start-first
+      restart_policy:
+        condition: any
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=traefik-net
+        - traefik.constraint-label=traefik-net
+        - traefik.http.routers.staging-pma.entrypoints=websecure
+        - traefik.http.routers.staging-pma.tls.certresolver=myresolver
+        - traefik.http.routers.staging-pma.rule=Host(`pma-${VIRTUAL_HOST}`)
+        - traefik.http.services.staging-pma.loadbalancer.server.port=80
+        - traefik.http.routers.staging-pma.middlewares=traefik-compress,auth-pma
+        - traefik.http.middlewares.traefik-compress.compress=true
+        - traefik.http.middlewares.auth-pma.basicauth.users=su:$$2y$$05$$CBinJGh5Cc9L.wNM6rLGD.0z5/RDTif6gsASemIDfhDyvy0SD3r1S
