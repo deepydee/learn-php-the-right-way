@@ -8,6 +8,19 @@ class InvoiceController
 {
     public function index(): string
     {
+        unset($_SESSION['count']);
+
+         // remove coolie - pass negative to expire
+         setcookie(
+            name: 'userName',
+            value: 'Vito',
+            expires_or_options: time() - 10,
+            path: '/',
+            domain: '',
+            secure: false,
+            httponly: false,
+        );
+
         return 'Invoice';
     }
 

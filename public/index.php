@@ -9,6 +9,8 @@ use Synthex\Phptherightway\Enums\RequestMethod;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+session_start();
+
 $router = new Router();
 
 $router
@@ -18,3 +20,6 @@ $router
     ->post('/invoices/create', [InvoiceController::class, 'store']);
 
 echo $router->resolve($_SERVER['REQUEST_URI'], RequestMethod::from($_SERVER['REQUEST_METHOD']));
+
+var_dump($_SESSION);
+var_dump($_COOKIE);
