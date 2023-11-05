@@ -9,10 +9,13 @@ use Synthex\Phptherightway\Enums\RequestMethod;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+define('STORAGE_PATH', __DIR__ . '/../storage');
+
 $router = new Router();
 
 $router
     ->get('/', [HomeController::class, 'index'])
+    ->post('/upload', [HomeController::class, 'upload'])
     ->get('/invoices', [InvoiceController::class, 'index'])
     ->get('/invoices/create', [InvoiceController::class, 'create'])
     ->post('/invoices/create', [InvoiceController::class, 'store']);
