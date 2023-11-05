@@ -4,18 +4,13 @@ declare(strict_types=1);
 
 namespace Synthex\Phptherightway\Controllers;
 
+use Synthex\Phptherightway\Core\View;
+
 class HomeController
 {
-    public function index(): string
+    public function index(): View
     {
-        $form = <<<HTML
-        <form action="/upload" method="post" enctype="multipart/form-data">
-            <input type="file" name="receipt">
-            <button type="submit">Upload</button>
-        </form>
-        HTML;
-
-        return $form;
+        return View::make('index', ['foo' => 'bar']);
     }
 
     public function upload(): void
