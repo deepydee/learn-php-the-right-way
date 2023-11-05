@@ -34,18 +34,33 @@ try {
         ]
     );
 
-    $email = $_GET['email'];
+    $email = 'vito@hooligan11.com';
+    $name = 'Vitalii Hooligan';
+    $isActive = 1;
+    $createdAt = date('Y-m-d H:i:s', strtotime('07/11/2021 9:00PM'));
 
-    // SQL injection http://php.test/?email=foo@bar.com%22+OR+1=1--%22
-    $query = 'SELECT * FROM users WHERE email = "' . $email . '"';
+    $query = 'INSERT INTO users (email, full_name, is_active, created_at)
+              VALUES (:email, :name, :is_active, :created_at)';
 
-    echo $query . '<br>';
+    $stmt = $db->prepare($query);
 
-    foreach($db->query($query)->fetchAll() as $user) {
-        echo '<pre>';
-        var_dump($user);
-        echo '</pre>';
-    }
+    $stmt->execute([
+        'email' => $email,
+        'name' => $name,
+        'is_active' => $isActive,
+        'created_at' => $createdAt,
+    ]);
+
+    $id = $db->lastInsertId();
+
+    $user = $db->query('SELECT * FROM users WHERE id = ' . $id)->fetch();
+    var_dump($user);
+
+    // foreach ($db->query('SELECT * FROM users WHERE id = ' . $id) as $user) {
+    //     echo '<pre>';
+    //     var_dump($user);
+    //     echo '</pre>';
+    // }
 
     $router = new Router();
 
@@ -58,11 +73,11 @@ try {
         ->post('/invoices/create', [InvoiceController::class, 'store']);
 
     echo $router->resolve($_SERVER['REQUEST_URI'], RequestMethod::from($_SERVER['REQUEST_METHOD']));
-} catch(RouteNotFoundException $e) {
+} catch (RouteNotFoundException $e) {
     http_response_code(404);
 
     echo View::make('error/404');
-} catch(\PDOException $e) {
-    throw new \PDOException($e->getMessage(), $e->getCode());
+} catch (\PDOException $e) {
+    throw new \PDOException($e->getMessage(), (int) $e->getCode());
 }
 
