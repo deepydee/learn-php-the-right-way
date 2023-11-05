@@ -5,14 +5,16 @@ declare(strict_types=1);
 use Synthex\Phptherightway\Core\Router;
 use Synthex\Phptherightway\Controllers\HomeController;
 use Synthex\Phptherightway\Controllers\InvoiceController;
+use Synthex\Phptherightway\Enums\RequestMethod;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $router = new Router();
 
 $router
-    ->register('/', [HomeController::class, 'index'])
-    ->register('/invoices', [InvoiceController::class, 'index'])
-    ->register('/invoices/create', [InvoiceController::class, 'create']);
+    ->get('/', [HomeController::class, 'index'])
+    ->get('/invoices', [InvoiceController::class, 'index'])
+    ->get('/invoices/create', [InvoiceController::class, 'create'])
+    ->post('/invoices/create', [InvoiceController::class, 'store']);
 
-echo $router->resolve($_SERVER['REQUEST_URI']);
+echo $router->resolve($_SERVER['REQUEST_URI'], RequestMethod::from($_SERVER['REQUEST_METHOD']));

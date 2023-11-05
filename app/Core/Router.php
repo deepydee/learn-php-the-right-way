@@ -4,23 +4,47 @@ declare(strict_types=1);
 
 namespace Synthex\Phptherightway\Core;
 
+use Synthex\Phptherightway\Enums\RequestMethod;
 use Synthex\Phptherightway\Exceptions\NotFoundException;
 
 class Router
 {
     private array $routes = [];
 
-    public function register(string $route, callable|array $action): self
+    public function register(RequestMethod $method, string $route, callable|array $action): self
     {
-        $this->routes[$route] = $action;
+        $this->routes[$method->value][$route] = $action;
 
         return $this;
     }
 
-    public function resolve(string $requestUri)
+    public function get(string $route, callable|array $action): self
+    {
+        return $this->register(
+            RequestMethod::GET,
+            $route,
+            $action,
+        );
+    }
+
+    public function post(string $route, callable|array $action): self
+    {
+        return $this->register(
+            RequestMethod::POST,
+            $route,
+            $action,
+        );
+    }
+
+    public function routes(): array
+    {
+        return $this->routes;
+    }
+
+    public function resolve(string $requestUri, RequestMethod $method)
     {
         $route = explode('?', $requestUri)[0];
-        $action = $this->routes[$route] ?? null;
+        $action = $this->routes[$method->value][$route] ?? null;
 
         if (! $action) {
             throw new NotFoundException();
