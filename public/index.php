@@ -31,16 +31,17 @@ try {
         password: $password,
         options: [
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+            PDO::ATTR_EMULATE_PREPARES => false,
         ]
     );
 
-    $email = 'vito11@hooligan11.com';
+    $email = 'vito2@hooligan11.com';
     $name = 'Vitalii Hooligan';
     $isActive = 1;
     $createdAt = date('Y-m-d H:i:s', strtotime('07/11/2021 9:00PM'));
 
-    $query = 'INSERT INTO users (email, full_name, is_active, created_at)
-              VALUES (:email, :name, :is_active, :created_at)';
+    $query = 'INSERT INTO users (email, full_name, is_active, created_at, updated_at)
+              VALUES (:email, :name, :is_active, :created_at, :updated_at)';
 
     $stmt = $db->prepare($query);
 
@@ -48,6 +49,7 @@ try {
     $stmt->bindValue(':email', $email);
     $stmt->bindParam(':is_active', $isActive, PDO::PARAM_BOOL);
     $stmt->bindValue(':created_at', $createdAt);
+    $stmt->bindValue(':updated_at', $createdAt);
 
     $isActive = 0;
 
