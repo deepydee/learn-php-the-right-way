@@ -15,6 +15,38 @@ define('STORAGE_PATH', __DIR__ . '/../storage');
 define('VIEW_PATH', __DIR__ . '/../views');
 
 try {
+    $connection = $_ENV['DB_CONNECTION'];
+    $host = $_ENV['DB_HOST'];
+    $port = $_ENV['DB_PORT'];
+    $dbname = $_ENV['DB_NAME'];
+
+    $user = $_ENV['DB_USER'];
+    $password = $_ENV['DB_PASS'];
+
+    $dsn = "$connection:host=$host;port=$port;dbname=$dbname";
+
+    $db = new \PDO(
+        dsn: $dsn,
+        username: $user,
+        password: $password,
+        options: [
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+        ]
+    );
+
+    $email = $_GET['email'];
+
+    // SQL injection http://php.test/?email=foo@bar.com%22+OR+1=1--%22
+    $query = 'SELECT * FROM users WHERE email = "' . $email . '"';
+
+    echo $query . '<br>';
+
+    foreach($db->query($query)->fetchAll() as $user) {
+        echo '<pre>';
+        var_dump($user);
+        echo '</pre>';
+    }
+
     $router = new Router();
 
     $router
@@ -30,5 +62,7 @@ try {
     http_response_code(404);
 
     echo View::make('error/404');
+} catch(\PDOException $e) {
+    throw new \PDOException($e->getMessage(), $e->getCode());
 }
 
