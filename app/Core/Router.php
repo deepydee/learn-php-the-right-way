@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Synthex\Phptherightway\Core;
 
 use Synthex\Phptherightway\Enums\RequestMethod;
-use Synthex\Phptherightway\Exceptions\NotFoundException;
+use Synthex\Phptherightway\Exceptions\RouteNotFoundException;
 
 class Router
 {
@@ -47,7 +47,7 @@ class Router
         $action = $this->routes[$method->value][$route] ?? null;
 
         if (! $action) {
-            throw new NotFoundException();
+            throw new RouteNotFoundException();
         }
 
         if (is_callable($action)) {
@@ -66,7 +66,6 @@ class Router
             }
         }
 
-
-        throw new NotFoundException();
+        throw new RouteNotFoundException();
     }
 }

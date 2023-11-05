@@ -13,15 +13,22 @@ class HomeController
         return View::make('index', ['foo' => 'bar']);
     }
 
+    public function download()
+    {
+        header('Content-Type: application/pdf');
+        header('Content-Disposition: attachment; filename="invoice.pdf"');
+
+        readfile(STORAGE_PATH . '/Пример.pdf');
+    }
+
     public function upload(): void
     {
-        var_dump($_FILES);
-        var_dump(pathinfo($_FILES['receipt']['tmp_name']));
-
         $filePath = STORAGE_PATH . '/' . $_FILES['receipt']['name'];
 
         move_uploaded_file($_FILES['receipt']['tmp_name'], $filePath);
 
-        var_dump($filePath);
+        header('Location: /');
+
+        exit;
     }
 }
