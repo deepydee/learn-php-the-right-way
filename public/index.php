@@ -8,6 +8,7 @@ use Synthex\Phptherightway\Controllers\InvoiceController;
 use Synthex\Phptherightway\Core\App;
 use Synthex\Phptherightway\Enums\RequestMethod;
 use Synthex\Phptherightway\Core\Config;
+use Synthex\Phptherightway\Core\FileLogger;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -16,6 +17,8 @@ $dotenv->safeLoad();
 
 define('STORAGE_PATH', __DIR__ . '/../storage');
 define('VIEW_PATH', __DIR__ . '/../views');
+
+$logger = FileLogger::create(STORAGE_PATH . '/logs/app.log');
 
 $router = new Router();
 
