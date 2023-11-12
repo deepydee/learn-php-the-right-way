@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Synthex\Phptherightway\Controllers;
 
+use Synthex\Phptherightway\Core\App;
 use Synthex\Phptherightway\Core\Collection\Collection;
 use Synthex\Phptherightway\Core\View;
 use Synthex\Phptherightway\Models\User;
+use Synthex\Phptherightway\Services\InvoiceService;
 
 class HomeController
 {
@@ -28,6 +30,7 @@ class HomeController
 
         unset($items[0]);
 
+        App::$container->get(InvoiceService::class)->process([], 25);
 
         return View::make('index', compact('users'));
     }
