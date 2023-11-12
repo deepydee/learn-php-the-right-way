@@ -4,12 +4,17 @@ declare(strict_types=1);
 
 namespace Synthex\Phptherightway\Core;
 
+use Synthex\Phptherightway\Core\Container;
 use Synthex\Phptherightway\Enums\RequestMethod;
 use Synthex\Phptherightway\Exceptions\RouteNotFoundException;
 
 class Router
 {
     private array $routes = [];
+
+    public function __construct(private Container $container)
+    {
+    }
 
     public function register(RequestMethod $method, string $route, callable|array $action): self
     {
@@ -57,7 +62,7 @@ class Router
         [$class, $method] = $action;
 
         if (class_exists($class)) {
-            $class = new $class();
+            $class = $this->container->get($class);
 
             if (method_exists($class, $method)) {
                 return call_user_func([$class, $method], []);

@@ -12,11 +12,12 @@ class InvoiceService
         protected EmailService $emailService,
     ) {
     }
+
     public function process(array $customer, float $amount): bool
     {
         $tax = $this->salesTaxService->calculate($amount, $customer);
 
-        if (! $this->gatewayService->charge($amount, $customer, $tax)) {
+        if (!$this->gatewayService->charge($amount, $customer, $tax)) {
             return false;
         }
 

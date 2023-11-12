@@ -9,6 +9,7 @@ use Synthex\Phptherightway\Core\App;
 use Synthex\Phptherightway\Enums\RequestMethod;
 use Synthex\Phptherightway\Core\Config;
 use Synthex\Phptherightway\Core\FileLogger;
+use Synthex\Phptherightway\Core\Container;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -20,7 +21,8 @@ define('VIEW_PATH', __DIR__ . '/../views');
 
 $logger = FileLogger::create(STORAGE_PATH . '/logs/app.log');
 
-$router = new Router();
+$container = new Container();
+$router = new Router($container);
 
 $router
     ->get('/', [HomeController::class, 'index'])

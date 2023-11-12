@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Synthex\Phptherightway\Controllers;
 
-use Synthex\Phptherightway\Core\App;
 use Synthex\Phptherightway\Core\Collection\Collection;
 use Synthex\Phptherightway\Core\View;
 use Synthex\Phptherightway\Models\User;
@@ -12,14 +11,18 @@ use Synthex\Phptherightway\Services\InvoiceService;
 
 class HomeController
 {
+    public function __construct(private InvoiceService $invoiceService)
+    {
+    }
+
     public function index(): View
     {
         $user = new User();
         $users = $user->all();
 
         $userEmails = Collection::make($users)
-            ->filter(fn (\StdClass $user) => ! is_null($user->email))
-            ->map(fn (\StdClass $user) => $user->email)
+            ->filter(fn(\StdClass $user) => !is_null($user->email))
+            ->map(fn(\StdClass $user) => $user->email)
             ->toArray();
 
         $items = Collection::make([1, 2, 3]);
@@ -30,7 +33,7 @@ class HomeController
 
         unset($items[0]);
 
-        App::$container->get(InvoiceService::class)->process([], 25);
+        $this->invoiceService->process([], 25);
 
         return View::make('index', compact('users'));
     }
