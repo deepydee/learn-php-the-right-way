@@ -5,13 +5,24 @@
             "Synthex\\Phptherightway\\": "app/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Vitaliy Semenov",
             "email": "synthex@bk.ru"
         }
     ],
+    "scripts": {
+        "test": "./vendor/bin/phpunit --colors=always --testdox --display-errors"
+    },
     "require": {
         "vlucas/phpdotenv": "^5.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10"
     }
 }
