@@ -22,7 +22,9 @@ class InvoiceService
 
         $this->emailService->send($customer, 'Receipt');
 
-        echo 'Invoice has been processed successfully<br>';
+        echo 'Invoice has been processed successfully' . PHP_EOL;
+        echo 'Add one more line!!!';
+        echo 'Add one more line!!!';
 
         return true;
     }
