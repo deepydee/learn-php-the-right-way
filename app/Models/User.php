@@ -27,4 +27,15 @@ class User extends Model
 
         return (int) $this->db->lastInsertId();
     }
+
+    public function all(): array
+    {
+        $stmt = $this->db->prepare(
+            'SELECT  * FROM users'
+        );
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
 }

@@ -4,34 +4,32 @@ declare(strict_types=1);
 
 namespace Synthex\Phptherightway\Controllers;
 
-use Synthex\Phptherightway\Actions\SignUpAction;
-use Synthex\Phptherightway\Core\App;
+use Synthex\Phptherightway\Core\Collection\Collection;
 use Synthex\Phptherightway\Core\View;
-use Synthex\Phptherightway\Models\Invoice;
 use Synthex\Phptherightway\Models\User;
 
 class HomeController
 {
     public function index(): View
     {
-        $email = 'vito777@hooligan11.com';
-        $name = 'Vitalii Hooligan';
-        $amount = 250;
-
         $user = new User();
-        $invoice = new Invoice();
+        $users = $user->all();
 
-        $invoiceId = (new SignUpAction($user, $invoice))->register(
-            [
-                'email' => $email,
-                'name' => $name,
-            ],
-            [
-                'amount' => $amount,
-            ]
-        );
+        $userEmails = Collection::make($users)
+            ->filter(fn (\StdClass $user) => ! is_null($user->email))
+            ->map(fn (\StdClass $user) => $user->email)
+            ->toArray();
 
-        return View::make('index', ['invoice' => $invoice->find($invoiceId)]);
+        $items = Collection::make([1, 2, 3]);
+
+        $items[] = 4;
+
+        $isset = isset($items[3]);
+
+        unset($items[0]);
+
+
+        return View::make('index', compact('users'));
     }
 
     public function download()
