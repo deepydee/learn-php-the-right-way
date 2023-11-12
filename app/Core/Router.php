@@ -54,15 +54,13 @@ class Router
             return call_user_func($action);
         }
 
-        if (is_array($action)) {
-            [$class, $method] = $action;
+        [$class, $method] = $action;
 
-            if (class_exists($class)) {
-                $class = new $class();
+        if (class_exists($class)) {
+            $class = new $class();
 
-                if (method_exists($class, $method)) {
-                    return call_user_func([$class, $method], []);
-                }
+            if (method_exists($class, $method)) {
+                return call_user_func([$class, $method], []);
             }
         }
 
