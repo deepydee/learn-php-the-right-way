@@ -35,6 +35,7 @@ $router
 
 
 (new App(
+    container: $container,
     router: $router,
     request: ['uri' => $_SERVER['REQUEST_URI'], 'method' => RequestMethod::from($_SERVER['REQUEST_METHOD'])],
     config: new Config($_ENV),

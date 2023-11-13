@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Synthex\Phptherightway\Services;
 
-class PaymentGatewayService
+use Synthex\Phptherightway\Interfaces\PaymentGatewayServiceInterface;
+
+class PaymentGatewayService implements PaymentGatewayServiceInterface
 {
     public function charge(float $amount, array $customer, float $tax): bool
     {

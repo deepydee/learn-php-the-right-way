@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace Synthex\Phptherightway\Services;
 
+use Synthex\Phptherightway\Interfaces\PaymentGatewayServiceInterface;
+
 class InvoiceService
 {
     public function __construct(
         protected SalesTaxService $salesTaxService,
-        protected PaymentGatewayService $gatewayService,
+        protected PaymentGatewayServiceInterface $gatewayService,
         protected EmailService $emailService,
     ) {
     }

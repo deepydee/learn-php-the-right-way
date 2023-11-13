@@ -10,21 +10,25 @@ use Synthex\Phptherightway\Core\DB;
 use Synthex\Phptherightway\Core\Router;
 use Synthex\Phptherightway\Core\View;
 use Synthex\Phptherightway\Exceptions\RouteNotFoundException;
-use Synthex\Phptherightway\Services\EmailService;
-use Synthex\Phptherightway\Services\InvoiceService;
+use Synthex\Phptherightway\Interfaces\PaymentGatewayServiceInterface;
 use Synthex\Phptherightway\Services\PaymentGatewayService;
-use Synthex\Phptherightway\Services\SalesTaxService;
 
 class App
 {
     private static DB $db;
 
     public function __construct(
+        protected Container $container,
         protected Router $router,
         protected array $request,
         protected Config $config,
     ) {
         static::$db = new DB($config->db ?? []);
+
+        $this->container->set(
+            PaymentGatewayServiceInterface::class,
+            fn(Container $c) => $c->get(PaymentGatewayService::class)
+        );
     }
 
     public static function db(): DB
