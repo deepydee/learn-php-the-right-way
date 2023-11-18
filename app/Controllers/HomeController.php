@@ -29,6 +29,10 @@ class HomeController
 
         $items[] = 4;
 
+        foreach($items as $item) {
+            echo $item;
+        }
+
         $isset = isset($items[3]);
 
         unset($items[0]);

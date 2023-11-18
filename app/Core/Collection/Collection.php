@@ -5,18 +5,26 @@ declare(strict_types=1);
 namespace Synthex\Phptherightway\Core\Collection;
 
 use ArrayAccess;
+use IteratorAggregate;
 
-class Collection implements ArrayAccess
+class Collection implements
+    ArrayAccess,
+    IteratorAggregate
 {
     private function __construct(
         protected array $items,
     ) {
     }
 
-   public static function make(array $items): static
-   {
-       return new static($items);
-   }
+    public function getIterator(): \Traversable
+    {
+        return new \ArrayIterator($this->items);
+    }
+
+    public static function make(array $items): static
+    {
+        return new static($items);
+    }
 
     public function map(callable $callback): static
     {
@@ -38,7 +46,7 @@ class Collection implements ArrayAccess
         return $this->items;
     }
 
-    public function  offsetExists(mixed $offset): bool
+    public function offsetExists(mixed $offset): bool
     {
         return isset($this->items[$offset]);
     }
