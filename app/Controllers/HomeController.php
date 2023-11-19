@@ -29,6 +29,8 @@ class HomeController
 
         $items[] = 4;
 
+        echo 'count = '. count($items);
+
         foreach($items as $item) {
             echo $item;
         }

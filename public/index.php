@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Synthex\Phptherightway\Controllers\CollectionController;
 use Synthex\Phptherightway\Controllers\GeneratorExampleController;
 use Synthex\Phptherightway\Core\Router;
 use Synthex\Phptherightway\Controllers\HomeController;
@@ -30,6 +31,7 @@ $router
     ->get('/', [HomeController::class, 'index'])
     ->get('/examples/generators', [GeneratorExampleController::class, 'index'])
     ->get('/examples/weakmap', [WeakMapExampleController::class, 'index'])
+    ->get('/examples/collections', [CollectionController::class, 'index'])
     ->get('/download', [HomeController::class, 'download'])
     ->post('/upload', [HomeController::class, 'upload'])
     ->get('/invoices', [InvoiceController::class, 'index'])

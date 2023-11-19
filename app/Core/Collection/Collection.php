@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace Synthex\Phptherightway\Core\Collection;
 
 use ArrayAccess;
+use Countable;
 use IteratorAggregate;
 
 class Collection implements
     ArrayAccess,
+    Countable,
     IteratorAggregate
 {
     private function __construct(
