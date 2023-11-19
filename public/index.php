@@ -6,6 +6,7 @@ use Synthex\Phptherightway\Controllers\GeneratorExampleController;
 use Synthex\Phptherightway\Core\Router;
 use Synthex\Phptherightway\Controllers\HomeController;
 use Synthex\Phptherightway\Controllers\InvoiceController;
+use Synthex\Phptherightway\Controllers\WeakMapExampleController;
 use Synthex\Phptherightway\Core\App;
 use Synthex\Phptherightway\Enums\RequestMethod;
 use Synthex\Phptherightway\Core\Config;
@@ -28,6 +29,7 @@ $router = new Router($container);
 $router
     ->get('/', [HomeController::class, 'index'])
     ->get('/examples/generators', [GeneratorExampleController::class, 'index'])
+    ->get('/examples/weakmap', [WeakMapExampleController::class, 'index'])
     ->get('/download', [HomeController::class, 'download'])
     ->post('/upload', [HomeController::class, 'upload'])
     ->get('/invoices', [InvoiceController::class, 'index'])
