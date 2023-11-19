@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace Synthex\Phptherightway\Core;
 
 use Psr\Container\ContainerInterface;
-use Synthex\Phptherightway\Exceptions\Container\NotFoundException;
-use Synthex\Phptherightway\Exceptions\ContainerException;
+use Synthex\Phptherightway\Exceptions\Container\ContainerException;
 
 class Container implements ContainerInterface
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Synthex\Phptherightway\Exceptions;
+namespace Synthex\Phptherightway\Exceptions\Container;
 
 use Psr\Container\ContainerExceptionInterface;
 

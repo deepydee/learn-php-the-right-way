@@ -12,4 +12,11 @@ abstract class Model
     {
         $this->db = App::db();
     }
+
+    protected function fetchLazy(\PDOStatement $stmt): \Generator
+    {
+        foreach ($stmt as $record) {
+            yield $record;
+        }
+    }
 }
