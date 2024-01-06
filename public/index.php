@@ -30,11 +30,12 @@ $router = new Router($container);
 $router->registerRoutesFromControllerAttributes([
     HomeController::class,
     GeneratorExampleController::class,
+    InvoiceController::class,
 ]);
 
-echo '<pre>';
-print_r($router->routes());
-echo '</pre>';
+// echo '<pre>';
+// print_r($router->routes());
+// echo '</pre>';
 
 // $router
 //     ->get('/', [HomeController::class, 'index'])
