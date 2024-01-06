@@ -29,26 +29,8 @@ $router = new Router($container);
 
 $router->registerRoutesFromControllerAttributes([
     HomeController::class,
-    GeneratorExampleController::class,
     InvoiceController::class,
 ]);
-
-// echo '<pre>';
-// print_r($router->routes());
-// echo '</pre>';
-
-// $router
-//     ->get('/', [HomeController::class, 'index'])
-//     ->get('/examples/generators', [GeneratorExampleController::class, 'index'])
-//     ->get('/examples/weakmap', [WeakMapExampleController::class, 'index'])
-//     ->get('/examples/collections', [CollectionController::class, 'index'])
-//     ->get('/download', [HomeController::class, 'download'])
-//     ->post('/upload', [HomeController::class, 'upload'])
-//     ->get('/invoices', [InvoiceController::class, 'index'])
-//     ->get('/invoices/create', [InvoiceController::class, 'create'])
-//     ->post('/invoices/create', [InvoiceController::class, 'store']);
-
-
 
 (new App(
     container: $container,

@@ -5,33 +5,18 @@ declare(strict_types=1);
 namespace Synthex\Phptherightway\Controllers;
 
 use Synthex\Phptherightway\Attributes\Get;
-use Synthex\Phptherightway\Attributes\Post;
-use Synthex\Phptherightway\Core\View;
-use Synthex\Phptherightway\Enums\InvoiceStatus;
-use Synthex\Phptherightway\Models\Invoice;
+use Synthex\Phptherightway\Invoice;
+use Synthex\Phptherightway\SalesTaxCalculator;
 
 class InvoiceController
 {
     #[Get('/invoices')]
-    public function index(): View
+    public function index(): void
     {
-        // (new Invoice())->seed();
-        $invoices = (new Invoice())->all(InvoiceStatus::Paid);
-
-        return View::make('invoices/index', ['invoices' => $invoices]);
-    }
-
-    #[Get('/invoices/create')]
-    public function create(): View
-    {
-        return View::make('invoices/create');
-    }
-
-    #[Post('/invoices/create')]
-    public function store()
-    {
-        $amount = $_POST['amount'];
-
-        var_dump($amount);
+        (new Invoice(new SalesTaxCalculator()))->create([
+            ['description' => 'Item 1', 'quantity' => 1, 'unitPrice' => 15.25],
+            ['description' => 'Item 2', 'quantity' => 2, 'unitPrice' => 10.50],
+            ['description' => 'Item 3', 'quantity' => 3, 'unitPrice' => 5.75],
+        ]);
     }
 }
