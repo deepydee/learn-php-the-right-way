@@ -1,2 +1,2 @@
 # Default Laravel shedule
-* * * * * cd /var/www/html && php artisan schedule:run >> /dev/null 2>&1
+*/1 * * * * php /var/www/html/app/scripts/email.php >> /var/www/html/app/scripts/cron.log 2>&1

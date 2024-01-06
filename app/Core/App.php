@@ -18,17 +18,27 @@ use Synthex\Phptherightway\Services\PaymentGatewayService;
 class App
 {
     private static DB $db;
+    private Config $config;
 
     public function __construct(
         protected Container $container,
-        protected Router $router,
-        protected array $request,
-        protected Config $config,
+        protected ?Router $router = null,
+        protected array $request = [],
     ) {
-        static::$db = new DB($config->db ?? []);
+    }
+
+    public function boot(): static
+    {
+        $dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__));
+        $dotenv->safeLoad();
+
+        $this->config = new Config($_ENV);
+        static::$db = new DB($this->config->db ?? []);
 
         $this->container->set(PaymentGatewayServiceInterface::class, PaymentGatewayService::class);
-        $this->container->set(MailerInterface::class, fn() => new CustomMailer($config->mailer['dsn']));
+        $this->container->set(MailerInterface::class, fn() => new CustomMailer($this->config->mailer['dsn']));
+
+        return $this;
     }
 
     public static function db(): DB

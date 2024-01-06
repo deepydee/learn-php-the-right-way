@@ -3,20 +3,14 @@
 declare(strict_types=1);
 
 namespace Synthex\Phptherightway\Controllers;
-use Symfony\Component\Mailer\Mailer;
-use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mailer\Transport;
-use Symfony\Component\Mime\Email;
+
+use Symfony\Component\Mime\Address;
 use Synthex\Phptherightway\Attributes\Get;
 use Synthex\Phptherightway\Attributes\Post;
 use Synthex\Phptherightway\Core\View;
 
 class UserController
 {
-    public function __construct(protected MailerInterface $mailer)
-    {
-    }
-
     #[Get('/users/create')]
     public function create(): View
     {
@@ -43,14 +37,12 @@ Hello $firstName,
 Thank you for signing up!
 HTMLBody;
 
-        $email = (new Email())
-            ->from('support@example.com')
-            ->to($email)
-            ->subject('Welcome!')
-            ->attach('Hello World!', 'welcome.txt')
-            ->text($text)
-            ->html($html);
-
-        $this->mailer->send($email);
+        (new \Synthex\Phptherightway\Models\Email())->queue(
+            new Address($email),
+            new Address('support@example.com', 'Support'),
+            'Welcome!',
+            $html,
+            $text
+        );
     }
 }
