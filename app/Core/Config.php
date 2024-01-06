@@ -6,6 +6,7 @@ namespace Synthex\Phptherightway\Core;
 
 /**
  * @property-read ?array $db
+ * @property-read ?array $mailer
  */
 class Config
 {
@@ -20,6 +21,9 @@ class Config
                 'dbname' => $env['DB_NAME'],
                 'user' => $env['DB_USER'],
                 'password' => $env['DB_PASS'],
+            ],
+            'mailer' => [
+                'dsn' => $_ENV['MAILER_DSN'] ?? ''
             ],
         ];
     }

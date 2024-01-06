@@ -2,12 +2,10 @@
 
 declare(strict_types=1);
 
-use Synthex\Phptherightway\Controllers\CollectionController;
 use Synthex\Phptherightway\Controllers\GeneratorExampleController;
+use Synthex\Phptherightway\Controllers\UserController;
 use Synthex\Phptherightway\Core\Router;
 use Synthex\Phptherightway\Controllers\HomeController;
-use Synthex\Phptherightway\Controllers\InvoiceController;
-use Synthex\Phptherightway\Controllers\WeakMapExampleController;
 use Synthex\Phptherightway\Core\App;
 use Synthex\Phptherightway\Enums\RequestMethod;
 use Synthex\Phptherightway\Core\Config;
@@ -29,25 +27,8 @@ $router = new Router($container);
 
 $router->registerRoutesFromControllerAttributes([
     HomeController::class,
-    GeneratorExampleController::class,
+    UserController::class,
 ]);
-
-echo '<pre>';
-print_r($router->routes());
-echo '</pre>';
-
-// $router
-//     ->get('/', [HomeController::class, 'index'])
-//     ->get('/examples/generators', [GeneratorExampleController::class, 'index'])
-//     ->get('/examples/weakmap', [WeakMapExampleController::class, 'index'])
-//     ->get('/examples/collections', [CollectionController::class, 'index'])
-//     ->get('/download', [HomeController::class, 'download'])
-//     ->post('/upload', [HomeController::class, 'upload'])
-//     ->get('/invoices', [InvoiceController::class, 'index'])
-//     ->get('/invoices/create', [InvoiceController::class, 'create'])
-//     ->post('/invoices/create', [InvoiceController::class, 'store']);
-
-
 
 (new App(
     container: $container,

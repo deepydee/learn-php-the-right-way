@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Synthex\Phptherightway\Core;
 
+use Symfony\Component\Mailer\MailerInterface;
 use Synthex\Phptherightway\Core\Config;
 use Synthex\Phptherightway\Core\Container;
 use Synthex\Phptherightway\Core\DB;
@@ -11,6 +12,7 @@ use Synthex\Phptherightway\Core\Router;
 use Synthex\Phptherightway\Core\View;
 use Synthex\Phptherightway\Exceptions\RouteNotFoundException;
 use Synthex\Phptherightway\Interfaces\PaymentGatewayServiceInterface;
+use Synthex\Phptherightway\Services\CustomMailer;
 use Synthex\Phptherightway\Services\PaymentGatewayService;
 
 class App
@@ -26,6 +28,7 @@ class App
         static::$db = new DB($config->db ?? []);
 
         $this->container->set(PaymentGatewayServiceInterface::class, PaymentGatewayService::class);
+        $this->container->set(MailerInterface::class, fn() => new CustomMailer($config->mailer['dsn']));
     }
 
     public static function db(): DB
