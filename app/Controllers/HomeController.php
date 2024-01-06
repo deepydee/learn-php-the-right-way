@@ -4,8 +4,12 @@ declare(strict_types=1);
 
 namespace Synthex\Phptherightway\Controllers;
 
+use Synthex\Phptherightway\Attributes\Get;
+use Synthex\Phptherightway\Attributes\Post;
+use Synthex\Phptherightway\Attributes\Put;
 use Synthex\Phptherightway\Core\Collection\Collection;
 use Synthex\Phptherightway\Core\View;
+use Synthex\Phptherightway\Enums\RequestMethod;
 use Synthex\Phptherightway\Models\User;
 use Synthex\Phptherightway\Services\InvoiceService;
 
@@ -15,33 +19,23 @@ class HomeController
     {
     }
 
-    public function index(): View
+    #[Get('/')]
+    #[Get(path: '/home')]
+    public function index(): string
     {
-        $user = new User();
-        $users = $user->all();
+        return 'Hello World';
+    }
 
-        $userEmails = Collection::make($users)
-            ->filter(fn(\StdClass $user) => !is_null($user->email))
-            ->map(fn(\StdClass $user) => $user->email)
-            ->toArray();
+    #[Post('/', RequestMethod::POST)]
+    public function store(): void
+    {
+        # code...
+    }
 
-        $items = Collection::make([1, 2, 3]);
-
-        $items[] = 4;
-
-        echo 'count = '. count($items);
-
-        foreach($items as $item) {
-            echo $item;
-        }
-
-        $isset = isset($items[3]);
-
-        unset($items[0]);
-
-        $this->invoiceService->process([], 25);
-
-        return View::make('index', compact('users'));
+    #[Put('/', RequestMethod::PUT)]
+    public function update(): void
+    {
+        # code...
     }
 
     public function download()

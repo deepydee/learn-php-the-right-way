@@ -27,16 +27,25 @@ $logger = FileLogger::create(STORAGE_PATH . '/logs/app.log');
 $container = new Container();
 $router = new Router($container);
 
-$router
-    ->get('/', [HomeController::class, 'index'])
-    ->get('/examples/generators', [GeneratorExampleController::class, 'index'])
-    ->get('/examples/weakmap', [WeakMapExampleController::class, 'index'])
-    ->get('/examples/collections', [CollectionController::class, 'index'])
-    ->get('/download', [HomeController::class, 'download'])
-    ->post('/upload', [HomeController::class, 'upload'])
-    ->get('/invoices', [InvoiceController::class, 'index'])
-    ->get('/invoices/create', [InvoiceController::class, 'create'])
-    ->post('/invoices/create', [InvoiceController::class, 'store']);
+$router->registerRoutesFromControllerAttributes([
+    HomeController::class,
+    GeneratorExampleController::class,
+]);
+
+echo '<pre>';
+print_r($router->routes());
+echo '</pre>';
+
+// $router
+//     ->get('/', [HomeController::class, 'index'])
+//     ->get('/examples/generators', [GeneratorExampleController::class, 'index'])
+//     ->get('/examples/weakmap', [WeakMapExampleController::class, 'index'])
+//     ->get('/examples/collections', [CollectionController::class, 'index'])
+//     ->get('/download', [HomeController::class, 'download'])
+//     ->post('/upload', [HomeController::class, 'upload'])
+//     ->get('/invoices', [InvoiceController::class, 'index'])
+//     ->get('/invoices/create', [InvoiceController::class, 'create'])
+//     ->post('/invoices/create', [InvoiceController::class, 'store']);
 
 
 

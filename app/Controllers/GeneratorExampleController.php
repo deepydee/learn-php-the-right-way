@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Synthex\Phptherightway\Controllers;
 
+use Synthex\Phptherightway\Attributes\Route;
 use Synthex\Phptherightway\Models\Ticket;
 
 class GeneratorExampleController
@@ -12,6 +13,7 @@ class GeneratorExampleController
     {
     }
 
+    #[Route('/examples/generators')]
     public function index()
     {
        foreach ($this->ticket->all() as $ticket) {

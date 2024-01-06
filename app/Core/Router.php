@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Synthex\Phptherightway\Core;
 
+use Synthex\Phptherightway\Attributes\Route;
 use Synthex\Phptherightway\Core\Container;
 use Synthex\Phptherightway\Enums\RequestMethod;
 use Synthex\Phptherightway\Exceptions\RouteNotFoundException;
@@ -14,6 +15,23 @@ class Router
 
     public function __construct(private Container $container)
     {
+    }
+
+    public function registerRoutesFromControllerAttributes(array $controllers): void
+    {
+        foreach ($controllers as $controller) {
+            $reflectionController = new \ReflectionClass($controller);
+
+            foreach ($reflectionController->getMethods() as $method) {
+                $attributes = $method->getAttributes(Route::class, \ReflectionAttribute::IS_INSTANCEOF);
+
+                foreach ($attributes as $attribute) {
+                    $route = $attribute->newInstance();
+
+                    $this->register($route->method, $route->path, [$controller, $method->getName()]);
+                }
+            }
+        }
     }
 
     public function register(RequestMethod $method, string $route, callable|array $action): self

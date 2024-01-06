@@ -12,21 +12,16 @@ class CollectionController
     {
         $filePath =  __DIR__ . '/../../storage/json/products.json';
 
-        $productsJson = json_decode(file_get_contents($filePath), true);
+        $productsJson = json_decode(file_get_contents($filePath));
 
-        $products = collect($productsJson['products']);
+        $products = collect($productsJson->products);
 
         $totalCost = 0;
 
-        foreach ($products as $product) {
-            $productType = $product['product_type'];
-
-            if ($productType === 'Lamp' || $productType === 'Wallet') {
-                foreach ($product['variants'] as $productVariant) {
-                    $totalCost += $productVariant['price'];
-                }
-            }
-        }
+        $totalCost = $products
+            ->filter(fn($product) => collect(['Lamp', 'Wallet'])->contains($product->product_type))
+            ->flatMap(fn($product) => $product->variants)
+            ->sum('price');
 
         echo $totalCost;
     }
