@@ -3,10 +3,25 @@
 declare(strict_types=1);
 
 namespace Synthex\Phptherightway\Models;
+use PDO;
 use Synthex\Phptherightway\Core\Model;
+use Synthex\Phptherightway\Enums\InvoiceStatus;
+use Synthex\Phptherightway\Factories\InvoiceFactory;
 
 class Invoice extends Model
 {
+    public function all(InvoiceStatus $status): array
+    {
+        $builder = $this->db->createQueryBuilder();
+
+        return $builder
+            ->select('id', 'invoice_number', 'amount', 'status')
+            ->from('invoices')
+            ->where('status = ?')
+            ->setParameter(0, $status->value)
+            ->fetchAllAssociative();
+    }
+
     public function create(
         float $amount,
         int $userId,
@@ -44,5 +59,40 @@ class Invoice extends Model
         $invoice = $stmt->fetch();
 
         return $invoice ? $invoice : new \StdClass();
+    }
+
+    public function seed(): void
+    {
+        $stmt = $this->db->prepare(
+            'INSERT INTO invoices (invoice_number, amount, status)
+          VALUES (?, ?, ?)'
+        );
+
+        try {
+
+            foreach (InvoiceFactory::make()->create(300) as $invoices) {
+                // Build bind parameters for the batch
+                $params = [];
+
+                foreach ($invoices as $invoices) {
+                    $params[] = [
+                        $invoices['invoice_number'],
+                        $invoices['amount'],
+                        $invoices['status'],
+                    ];
+                }
+
+                // Insert all tickets
+                $this->db->beginTransaction();
+                foreach ($params as $param) {
+                    $stmt->execute($param);
+                }
+                $this->db->commit();
+            }
+
+
+        } catch (\PDOException $e) {
+            $this->db->rollback();
+        }
     }
 }
