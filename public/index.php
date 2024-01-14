@@ -3,6 +3,8 @@
 declare(strict_types=1);
 
 use Synthex\Phptherightway\Controllers\DoctrineController;
+use Synthex\Phptherightway\Controllers\GeneratorExampleController;
+use Synthex\Phptherightway\Controllers\InvoiceController;
 use Synthex\Phptherightway\Controllers\UserController;
 use Synthex\Phptherightway\Core\Router;
 use Synthex\Phptherightway\Controllers\HomeController;
@@ -25,6 +27,8 @@ $router->registerRoutesFromControllerAttributes([
     HomeController::class,
     UserController::class,
     DoctrineController::class,
+    GeneratorExampleController::class,
+    InvoiceController::class,
 ]);
 
 (new App(
