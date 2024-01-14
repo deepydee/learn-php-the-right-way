@@ -14,6 +14,7 @@ use Synthex\Phptherightway\Exceptions\RouteNotFoundException;
 use Synthex\Phptherightway\Interfaces\PaymentGatewayServiceInterface;
 use Synthex\Phptherightway\Services\CustomMailer;
 use Synthex\Phptherightway\Services\PaymentGatewayService;
+use Doctrine\DBAL\DriverManager;
 
 class App
 {
@@ -32,7 +33,7 @@ class App
         $dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__));
         $dotenv->safeLoad();
 
-        $this->config = new Config($_ENV);
+        $this->config = Config::getInstance($_ENV);
         static::$db = new DB($this->config->db ?? []);
 
         $this->container->set(PaymentGatewayServiceInterface::class, PaymentGatewayService::class);
