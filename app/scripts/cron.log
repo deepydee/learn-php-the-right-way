@@ -1,0 +1,1023 @@
+array(41) {
+  [0]=>
+  array(4) {
+    ["id"]=>
+    int(1)
+    ["invoice_number"]=>
+    int(6569)
+    ["amount"]=>
+    string(7) "7680.72"
+    ["status"]=>
+    int(1)
+  }
+  [1]=>
+  array(4) {
+    ["id"]=>
+    int(2)
+    ["invoice_number"]=>
+    int(22463)
+    ["amount"]=>
+    string(5) "41.80"
+    ["status"]=>
+    int(0)
+  }
+  [2]=>
+  array(4) {
+    ["id"]=>
+    int(3)
+    ["invoice_number"]=>
+    int(65704)
+    ["amount"]=>
+    string(7) "3170.61"
+    ["status"]=>
+    int(0)
+  }
+  [3]=>
+  array(4) {
+    ["id"]=>
+    int(4)
+    ["invoice_number"]=>
+    int(65281)
+    ["amount"]=>
+    string(7) "4791.75"
+    ["status"]=>
+    int(3)
+  }
+  [4]=>
+  array(4) {
+    ["id"]=>
+    int(5)
+    ["invoice_number"]=>
+    int(16893)
+    ["amount"]=>
+    string(6) "155.31"
+    ["status"]=>
+    int(0)
+  }
+  [5]=>
+  array(4) {
+    ["id"]=>
+    int(6)
+    ["invoice_number"]=>
+    int(14520)
+    ["amount"]=>
+    string(10) "4315228.37"
+    ["status"]=>
+    int(1)
+  }
+  [6]=>
+  array(4) {
+    ["id"]=>
+    int(7)
+    ["invoice_number"]=>
+    int(32225)
+    ["amount"]=>
+    string(11) "55222634.00"
+    ["status"]=>
+    int(2)
+  }
+  [7]=>
+  array(4) {
+    ["id"]=>
+    int(8)
+    ["invoice_number"]=>
+    int(60809)
+    ["amount"]=>
+    string(4) "7.62"
+    ["status"]=>
+    int(2)
+  }
+  [8]=>
+  array(4) {
+    ["id"]=>
+    int(9)
+    ["invoice_number"]=>
+    int(83525)
+    ["amount"]=>
+    string(6) "562.91"
+    ["status"]=>
+    int(3)
+  }
+  [9]=>
+  array(4) {
+    ["id"]=>
+    int(10)
+    ["invoice_number"]=>
+    int(97463)
+    ["amount"]=>
+    string(10) "4608893.18"
+    ["status"]=>
+    int(0)
+  }
+  [10]=>
+  array(4) {
+    ["id"]=>
+    int(11)
+    ["invoice_number"]=>
+    int(67966)
+    ["amount"]=>
+    string(4) "1.43"
+    ["status"]=>
+    int(2)
+  }
+  [11]=>
+  array(4) {
+    ["id"]=>
+    int(12)
+    ["invoice_number"]=>
+    int(61258)
+    ["amount"]=>
+    string(9) "393179.65"
+    ["status"]=>
+    int(2)
+  }
+  [12]=>
+  array(4) {
+    ["id"]=>
+    int(13)
+    ["invoice_number"]=>
+    int(43191)
+    ["amount"]=>
+    string(4) "3.91"
+    ["status"]=>
+    int(0)
+  }
+  [13]=>
+  array(4) {
+    ["id"]=>
+    int(14)
+    ["invoice_number"]=>
+    int(93713)
+    ["amount"]=>
+    string(10) "5946345.16"
+    ["status"]=>
+    int(3)
+  }
+  [14]=>
+  array(4) {
+    ["id"]=>
+    int(15)
+    ["invoice_number"]=>
+    int(75145)
+    ["amount"]=>
+    string(7) "5340.91"
+    ["status"]=>
+    int(1)
+  }
+  [15]=>
+  array(4) {
+    ["id"]=>
+    int(16)
+    ["invoice_number"]=>
+    int(29612)
+    ["amount"]=>
+    string(6) "463.38"
+    ["status"]=>
+    int(1)
+  }
+  [16]=>
+  array(4) {
+    ["id"]=>
+    int(17)
+    ["invoice_number"]=>
+    int(80790)
+    ["amount"]=>
+    string(6) "211.87"
+    ["status"]=>
+    int(0)
+  }
+  [17]=>
+  array(4) {
+    ["id"]=>
+    int(18)
+    ["invoice_number"]=>
+    int(65968)
+    ["amount"]=>
+    string(6) "358.00"
+    ["status"]=>
+    int(3)
+  }
+  [18]=>
+  array(4) {
+    ["id"]=>
+    int(19)
+    ["invoice_number"]=>
+    int(38561)
+    ["amount"]=>
+    string(5) "89.80"
+    ["status"]=>
+    int(0)
+  }
+  [19]=>
+  array(4) {
+    ["id"]=>
+    int(20)
+    ["invoice_number"]=>
+    int(96087)
+    ["amount"]=>
+    string(11) "29265275.31"
+    ["status"]=>
+    int(0)
+  }
+  [20]=>
+  array(4) {
+    ["id"]=>
+    int(21)
+    ["invoice_number"]=>
+    int(80286)
+    ["amount"]=>
+    string(8) "20088.15"
+    ["status"]=>
+    int(1)
+  }
+  [21]=>
+  array(4) {
+    ["id"]=>
+    int(22)
+    ["invoice_number"]=>
+    int(25407)
+    ["amount"]=>
+    string(10) "5076474.95"
+    ["status"]=>
+    int(3)
+  }
+  [22]=>
+  array(4) {
+    ["id"]=>
+    int(23)
+    ["invoice_number"]=>
+    int(52598)
+    ["amount"]=>
+    string(10) "9753916.01"
+    ["status"]=>
+    int(0)
+  }
+  [23]=>
+  array(4) {
+    ["id"]=>
+    int(24)
+    ["invoice_number"]=>
+    int(42888)
+    ["amount"]=>
+    string(5) "18.00"
+    ["status"]=>
+    int(0)
+  }
+  [24]=>
+  array(4) {
+    ["id"]=>
+    int(25)
+    ["invoice_number"]=>
+    int(17547)
+    ["amount"]=>
+    string(5) "31.76"
+    ["status"]=>
+    int(0)
+  }
+  [25]=>
+  array(4) {
+    ["id"]=>
+    int(26)
+    ["invoice_number"]=>
+    int(15200)
+    ["amount"]=>
+    string(5) "73.58"
+    ["status"]=>
+    int(3)
+  }
+  [26]=>
+  array(4) {
+    ["id"]=>
+    int(27)
+    ["invoice_number"]=>
+    int(46926)
+    ["amount"]=>
+    string(10) "6628284.92"
+    ["status"]=>
+    int(3)
+  }
+  [27]=>
+  array(4) {
+    ["id"]=>
+    int(28)
+    ["invoice_number"]=>
+    int(92280)
+    ["amount"]=>
+    string(4) "5.57"
+    ["status"]=>
+    int(3)
+  }
+  [28]=>
+  array(4) {
+    ["id"]=>
+    int(29)
+    ["invoice_number"]=>
+    int(54174)
+    ["amount"]=>
+    string(6) "153.27"
+    ["status"]=>
+    int(1)
+  }
+  [29]=>
+  array(4) {
+    ["id"]=>
+    int(30)
+    ["invoice_number"]=>
+    int(38196)
+    ["amount"]=>
+    string(7) "2416.97"
+    ["status"]=>
+    int(0)
+  }
+  [30]=>
+  array(4) {
+    ["id"]=>
+    int(31)
+    ["invoice_number"]=>
+    int(38153)
+    ["amount"]=>
+    string(9) "184516.67"
+    ["status"]=>
+    int(1)
+  }
+  [31]=>
+  array(4) {
+    ["id"]=>
+    int(33)
+    ["invoice_number"]=>
+    int(76587)
+    ["amount"]=>
+    string(9) "410332.70"
+    ["status"]=>
+    int(2)
+  }
+  [32]=>
+  array(4) {
+    ["id"]=>
+    int(34)
+    ["invoice_number"]=>
+    int(77790)
+    ["amount"]=>
+    string(11) "64285077.01"
+    ["status"]=>
+    int(3)
+  }
+  [33]=>
+  array(4) {
+    ["id"]=>
+    int(35)
+    ["invoice_number"]=>
+    int(77055)
+    ["amount"]=>
+    string(7) "6376.70"
+    ["status"]=>
+    int(1)
+  }
+  [34]=>
+  array(4) {
+    ["id"]=>
+    int(36)
+    ["invoice_number"]=>
+    int(79475)
+    ["amount"]=>
+    string(9) "171355.85"
+    ["status"]=>
+    int(2)
+  }
+  [35]=>
+  array(4) {
+    ["id"]=>
+    int(37)
+    ["invoice_number"]=>
+    int(49491)
+    ["amount"]=>
+    string(11) "42487416.00"
+    ["status"]=>
+    int(3)
+  }
+  [36]=>
+  array(4) {
+    ["id"]=>
+    int(38)
+    ["invoice_number"]=>
+    int(73654)
+    ["amount"]=>
+    string(11) "36415076.32"
+    ["status"]=>
+    int(3)
+  }
+  [37]=>
+  array(4) {
+    ["id"]=>
+    int(39)
+    ["invoice_number"]=>
+    int(72813)
+    ["amount"]=>
+    string(8) "50315.90"
+    ["status"]=>
+    int(1)
+  }
+  [38]=>
+  array(4) {
+    ["id"]=>
+    int(40)
+    ["invoice_number"]=>
+    int(71959)
+    ["amount"]=>
+    string(10) "4233383.00"
+    ["status"]=>
+    int(3)
+  }
+  [39]=>
+  array(4) {
+    ["id"]=>
+    int(41)
+    ["invoice_number"]=>
+    int(58803)
+    ["amount"]=>
+    string(9) "446465.13"
+    ["status"]=>
+    int(1)
+  }
+  [40]=>
+  array(4) {
+    ["id"]=>
+    int(42)
+    ["invoice_number"]=>
+    int(37715)
+    ["amount"]=>
+    string(8) "82146.47"
+    ["status"]=>
+    int(1)
+  }
+}
+array(41) {
+  [0]=>
+  array(4) {
+    ["id"]=>
+    int(1)
+    ["invoice_number"]=>
+    int(6569)
+    ["amount"]=>
+    string(7) "7680.72"
+    ["status"]=>
+    int(1)
+  }
+  [1]=>
+  array(4) {
+    ["id"]=>
+    int(2)
+    ["invoice_number"]=>
+    int(22463)
+    ["amount"]=>
+    string(5) "41.80"
+    ["status"]=>
+    int(0)
+  }
+  [2]=>
+  array(4) {
+    ["id"]=>
+    int(3)
+    ["invoice_number"]=>
+    int(65704)
+    ["amount"]=>
+    string(7) "3170.61"
+    ["status"]=>
+    int(0)
+  }
+  [3]=>
+  array(4) {
+    ["id"]=>
+    int(4)
+    ["invoice_number"]=>
+    int(65281)
+    ["amount"]=>
+    string(7) "4791.75"
+    ["status"]=>
+    int(3)
+  }
+  [4]=>
+  array(4) {
+    ["id"]=>
+    int(5)
+    ["invoice_number"]=>
+    int(16893)
+    ["amount"]=>
+    string(6) "155.31"
+    ["status"]=>
+    int(0)
+  }
+  [5]=>
+  array(4) {
+    ["id"]=>
+    int(6)
+    ["invoice_number"]=>
+    int(14520)
+    ["amount"]=>
+    string(10) "4315228.37"
+    ["status"]=>
+    int(1)
+  }
+  [6]=>
+  array(4) {
+    ["id"]=>
+    int(7)
+    ["invoice_number"]=>
+    int(32225)
+    ["amount"]=>
+    string(11) "55222634.00"
+    ["status"]=>
+    int(2)
+  }
+  [7]=>
+  array(4) {
+    ["id"]=>
+    int(8)
+    ["invoice_number"]=>
+    int(60809)
+    ["amount"]=>
+    string(4) "7.62"
+    ["status"]=>
+    int(2)
+  }
+  [8]=>
+  array(4) {
+    ["id"]=>
+    int(9)
+    ["invoice_number"]=>
+    int(83525)
+    ["amount"]=>
+    string(6) "562.91"
+    ["status"]=>
+    int(3)
+  }
+  [9]=>
+  array(4) {
+    ["id"]=>
+    int(10)
+    ["invoice_number"]=>
+    int(97463)
+    ["amount"]=>
+    string(10) "4608893.18"
+    ["status"]=>
+    int(0)
+  }
+  [10]=>
+  array(4) {
+    ["id"]=>
+    int(11)
+    ["invoice_number"]=>
+    int(67966)
+    ["amount"]=>
+    string(4) "1.43"
+    ["status"]=>
+    int(2)
+  }
+  [11]=>
+  array(4) {
+    ["id"]=>
+    int(12)
+    ["invoice_number"]=>
+    int(61258)
+    ["amount"]=>
+    string(9) "393179.65"
+    ["status"]=>
+    int(2)
+  }
+  [12]=>
+  array(4) {
+    ["id"]=>
+    int(13)
+    ["invoice_number"]=>
+    int(43191)
+    ["amount"]=>
+    string(4) "3.91"
+    ["status"]=>
+    int(0)
+  }
+  [13]=>
+  array(4) {
+    ["id"]=>
+    int(14)
+    ["invoice_number"]=>
+    int(93713)
+    ["amount"]=>
+    string(10) "5946345.16"
+    ["status"]=>
+    int(3)
+  }
+  [14]=>
+  array(4) {
+    ["id"]=>
+    int(15)
+    ["invoice_number"]=>
+    int(75145)
+    ["amount"]=>
+    string(7) "5340.91"
+    ["status"]=>
+    int(1)
+  }
+  [15]=>
+  array(4) {
+    ["id"]=>
+    int(16)
+    ["invoice_number"]=>
+    int(29612)
+    ["amount"]=>
+    string(6) "463.38"
+    ["status"]=>
+    int(1)
+  }
+  [16]=>
+  array(4) {
+    ["id"]=>
+    int(17)
+    ["invoice_number"]=>
+    int(80790)
+    ["amount"]=>
+    string(6) "211.87"
+    ["status"]=>
+    int(0)
+  }
+  [17]=>
+  array(4) {
+    ["id"]=>
+    int(18)
+    ["invoice_number"]=>
+    int(65968)
+    ["amount"]=>
+    string(6) "358.00"
+    ["status"]=>
+    int(3)
+  }
+  [18]=>
+  array(4) {
+    ["id"]=>
+    int(19)
+    ["invoice_number"]=>
+    int(38561)
+    ["amount"]=>
+    string(5) "89.80"
+    ["status"]=>
+    int(0)
+  }
+  [19]=>
+  array(4) {
+    ["id"]=>
+    int(20)
+    ["invoice_number"]=>
+    int(96087)
+    ["amount"]=>
+    string(11) "29265275.31"
+    ["status"]=>
+    int(0)
+  }
+  [20]=>
+  array(4) {
+    ["id"]=>
+    int(21)
+    ["invoice_number"]=>
+    int(80286)
+    ["amount"]=>
+    string(8) "20088.15"
+    ["status"]=>
+    int(1)
+  }
+  [21]=>
+  array(4) {
+    ["id"]=>
+    int(22)
+    ["invoice_number"]=>
+    int(25407)
+    ["amount"]=>
+    string(10) "5076474.95"
+    ["status"]=>
+    int(3)
+  }
+  [22]=>
+  array(4) {
+    ["id"]=>
+    int(23)
+    ["invoice_number"]=>
+    int(52598)
+    ["amount"]=>
+    string(10) "9753916.01"
+    ["status"]=>
+    int(0)
+  }
+  [23]=>
+  array(4) {
+    ["id"]=>
+    int(24)
+    ["invoice_number"]=>
+    int(42888)
+    ["amount"]=>
+    string(5) "18.00"
+    ["status"]=>
+    int(0)
+  }
+  [24]=>
+  array(4) {
+    ["id"]=>
+    int(25)
+    ["invoice_number"]=>
+    int(17547)
+    ["amount"]=>
+    string(5) "31.76"
+    ["status"]=>
+    int(0)
+  }
+  [25]=>
+  array(4) {
+    ["id"]=>
+    int(26)
+    ["invoice_number"]=>
+    int(15200)
+    ["amount"]=>
+    string(5) "73.58"
+    ["status"]=>
+    int(3)
+  }
+  [26]=>
+  array(4) {
+    ["id"]=>
+    int(27)
+    ["invoice_number"]=>
+    int(46926)
+    ["amount"]=>
+    string(10) "6628284.92"
+    ["status"]=>
+    int(3)
+  }
+  [27]=>
+  array(4) {
+    ["id"]=>
+    int(28)
+    ["invoice_number"]=>
+    int(92280)
+    ["amount"]=>
+    string(4) "5.57"
+    ["status"]=>
+    int(3)
+  }
+  [28]=>
+  array(4) {
+    ["id"]=>
+    int(29)
+    ["invoice_number"]=>
+    int(54174)
+    ["amount"]=>
+    string(6) "153.27"
+    ["status"]=>
+    int(1)
+  }
+  [29]=>
+  array(4) {
+    ["id"]=>
+    int(30)
+    ["invoice_number"]=>
+    int(38196)
+    ["amount"]=>
+    string(7) "2416.97"
+    ["status"]=>
+    int(0)
+  }
+  [30]=>
+  array(4) {
+    ["id"]=>
+    int(31)
+    ["invoice_number"]=>
+    int(38153)
+    ["amount"]=>
+    string(9) "184516.67"
+    ["status"]=>
+    int(1)
+  }
+  [31]=>
+  array(4) {
+    ["id"]=>
+    int(33)
+    ["invoice_number"]=>
+    int(76587)
+    ["amount"]=>
+    string(9) "410332.70"
+    ["status"]=>
+    int(2)
+  }
+  [32]=>
+  array(4) {
+    ["id"]=>
+    int(34)
+    ["invoice_number"]=>
+    int(77790)
+    ["amount"]=>
+    string(11) "64285077.01"
+    ["status"]=>
+    int(3)
+  }
+  [33]=>
+  array(4) {
+    ["id"]=>
+    int(35)
+    ["invoice_number"]=>
+    int(77055)
+    ["amount"]=>
+    string(7) "6376.70"
+    ["status"]=>
+    int(1)
+  }
+  [34]=>
+  array(4) {
+    ["id"]=>
+    int(36)
+    ["invoice_number"]=>
+    int(79475)
+    ["amount"]=>
+    string(9) "171355.85"
+    ["status"]=>
+    int(2)
+  }
+  [35]=>
+  array(4) {
+    ["id"]=>
+    int(37)
+    ["invoice_number"]=>
+    int(49491)
+    ["amount"]=>
+    string(11) "42487416.00"
+    ["status"]=>
+    int(3)
+  }
+  [36]=>
+  array(4) {
+    ["id"]=>
+    int(38)
+    ["invoice_number"]=>
+    int(73654)
+    ["amount"]=>
+    string(11) "36415076.32"
+    ["status"]=>
+    int(3)
+  }
+  [37]=>
+  array(4) {
+    ["id"]=>
+    int(39)
+    ["invoice_number"]=>
+    int(72813)
+    ["amount"]=>
+    string(8) "50315.90"
+    ["status"]=>
+    int(1)
+  }
+  [38]=>
+  array(4) {
+    ["id"]=>
+    int(40)
+    ["invoice_number"]=>
+    int(71959)
+    ["amount"]=>
+    string(10) "4233383.00"
+    ["status"]=>
+    int(3)
+  }
+  [39]=>
+  array(4) {
+    ["id"]=>
+    int(41)
+    ["invoice_number"]=>
+    int(58803)
+    ["amount"]=>
+    string(9) "446465.13"
+    ["status"]=>
+    int(1)
+  }
+  [40]=>
+  array(4) {
+    ["id"]=>
+    int(42)
+    ["invoice_number"]=>
+    int(37715)
+    ["amount"]=>
+    string(8) "82146.47"
+    ["status"]=>
+    int(1)
+  }
+}
+array(1) {
+  [0]=>
+  array(4) {
+    ["id"]=>
+    int(7)
+    ["invoice_number"]=>
+    int(32225)
+    ["amount"]=>
+    string(11) "55222634.00"
+    ["status"]=>
+    int(2)
+  }
+}
+array(1) {
+  [0]=>
+  array(4) {
+    ["id"]=>
+    int(7)
+    ["invoice_number"]=>
+    int(32225)
+    ["amount"]=>
+    string(11) "55222634.00"
+    ["status"]=>
+    int(2)
+  }
+}
+array(1) {
+  [0]=>
+  array(4) {
+    ["id"]=>
+    int(7)
+    ["invoice_number"]=>
+    int(32225)
+    ["amount"]=>
+    string(11) "55222634.00"
+    ["status"]=>
+    int(2)
+  }
+}
+array(1) {
+  [0]=>
+  array(4) {
+    ["id"]=>
+    int(7)
+    ["invoice_number"]=>
+    int(32225)
+    ["amount"]=>
+    string(11) "55222634.00"
+    ["status"]=>
+    int(2)
+  }
+}
+array(1) {
+  [0]=>
+  array(4) {
+    ["id"]=>
+    int(7)
+    ["invoice_number"]=>
+    int(32225)
+    ["amount"]=>
+    string(11) "55222634.00"
+    ["status"]=>
+    int(2)
+  }
+}
+array(1) {
+  [0]=>
+  array(4) {
+    ["id"]=>
+    int(7)
+    ["invoice_number"]=>
+    int(32225)
+    ["amount"]=>
+    string(11) "55222634.00"
+    ["status"]=>
+    int(2)
+  }
+}
+array(1) {
+  [0]=>
+  array(4) {
+    ["id"]=>
+    int(7)
+    ["invoice_number"]=>
+    int(32225)
+    ["amount"]=>
+    string(11) "55222634.00"
+    ["status"]=>
+    int(2)
+  }
+}
+array(1) {
+  [0]=>
+  array(4) {
+    ["id"]=>
+    int(7)
+    ["invoice_number"]=>
+    int(32225)
+    ["amount"]=>
+    string(11) "55222634.00"
+    ["status"]=>
+    int(2)
+  }
+}
+array(1) {
+  [0]=>
+  array(4) {
+    ["id"]=>
+    int(7)
+    ["invoice_number"]=>
+    int(32225)
+    ["amount"]=>
+    string(11) "55222634.00"
+    ["status"]=>
+    int(2)
+  }
+}

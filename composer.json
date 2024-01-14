@@ -5,11 +5,29 @@
             "Synthex\\Phptherightway\\": "app/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Vitaliy Semenov",
             "email": "synthex@bk.ru"
         }
     ],
-    "require": {}
+    "scripts": {
+        "test": "./vendor/bin/phpunit --colors=always --testdox --display-errors"
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.5",
+        "psr/container": "^2.0",
+        "fakerphp/faker": "^1.23",
+        "illuminate/support": "^10.32",
+        "symfony/mailer": "^7.0",
+        "doctrine/dbal": "^3.7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10"
+    }
 }
