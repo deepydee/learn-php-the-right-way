@@ -6,16 +6,32 @@ namespace Synthex\Phptherightway\Controllers;
 
 use Doctrine\DBAL\ArrayParameterType;
 use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\DriverManager;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\ORMSetup;
+use Doctrine\ORM\Tools\Setup;
 use Synthex\Phptherightway\Attributes\Get;
 use Synthex\Phptherightway\Core\App;
+use Synthex\Phptherightway\Core\Config;
+use Synthex\Phptherightway\Entity\Invoice;
+use Synthex\Phptherightway\Entity\InvoiceItem;
+use Synthex\Phptherightway\Enums\InvoiceStatus;
 
 class DoctrineController
 {
     private $conn;
+    private EntityManager $entityManager;
 
     public function __construct()
     {
         $this->conn = App::db();
+
+        $this->entityManager = new EntityManager(
+            conn: DriverManager::getConnection(Config::getInstance($_ENV)->db ?? []),
+            config: ORMSetup::createAttributeMetadataConfiguration(
+                paths: [__DIR__ . '/../Entity'],
+            ),
+        );
     }
 
     #[Get('/doctrine')]
@@ -24,7 +40,9 @@ class DoctrineController
         // $this->getBetween();
         // $this->getIdsFromList();
         // $this->builder();
-        $this->schema();
+        // $this->schema();
+
+        $this->doctrineOrmPlayground();
 
     }
 
@@ -119,5 +137,44 @@ class DoctrineController
         $columns = $schema->listTableColumns('tickets');
         // var_dump(array_map(fn(Column $column) => $column->getName(), $columns));
         var_dump(array_keys($columns));
+    }
+
+    private function doctrineOrmPlayground()
+    {
+        $items = [
+            ['Item 1', 1, 15],
+            ['Item 2', 2, 10.5],
+            ['Item 3', 3, 5.75],
+        ];
+
+        $invoice = (new Invoice())
+            ->setAmount(35)
+            ->setInvoiceNumber('12345')
+            ->setStatus(InvoiceStatus::Pending)
+            ->setCreatedAt(new \DateTime());
+
+        foreach ($items as [$description, $quantitty, $unitPrice]) {
+            $item = (new InvoiceItem())
+                ->setDescription($description)
+                ->setQuantity($quantitty)
+                ->setUnitPrice($unitPrice);
+
+            $invoice->addItem($item);
+
+            // $this->entityManager->persist($item); <-- add cascade: ['persist', 'remove'] to Invoice
+        }
+
+        // $this->entityManager->persist($invoice);
+        // $this->entityManager->flush();
+
+        $this->entityManager->remove($invoice);
+        $this->entityManager->flush();
+
+        echo $this->entityManager->getUnitOfWork()->size();
+
+        // get an entity and update it
+        $inv = $this->entityManager->find(Invoice::class, 49);
+        $inv->setStatus(InvoiceStatus::Paid);
+        $this->entityManager->flush();
     }
 }
